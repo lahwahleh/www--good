@@ -1,0 +1,164 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+	<link href="lib/ionic/css/chatcss.css" rel="stylesheet">
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+	<script src="lib/ionic/js/jquery-1.11.1.min.js"></script>
+	<script src="lib/ionic/js/jstorage.js"></script>
+    <!--add-->
+    <script src="lib/ionic/js/angular/angular-animate.min.js"></script>
+    <script src="lib/ionic/js/angular/angular-touch.js"></script>
+    <script src="lib/ionic/js/moment.js"></script>
+    <!--add-->
+
+
+	
+	
+	<script src="https://cdn.pubnub.com/pubnub.min.js"></script>
+  <script src="https://cdn.pubnub.com/pubnub-crypto.min.js"></script>
+  <script src="http://pubnub.github.io/angular-js/scripts/pubnub-angular.js"></script>
+	<script src="lib/ionic/js/pubnub-3.7.1.min.js"></script>
+	<script src="lib/ionic/js/preloads.js"></script>
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+  </head>
+
+  <body ng-app="starter">
+  <div id="custom-overlay"><img src="./img/splash.png"></div> 
+      <ion-nav-view ></ion-nav-view>
+    <script id="signout.html" type="text/ng-template">
+<!--  <ion-view view-title="Login" name="login-view"><div class="bar bar-header bar-positive"><button class="button icon ion-navicon" ></button><h1 class="title">KCOBA</h1><button class="button" ng-click="enrol()">Enroll</button>			</div> -->
+            <ion-content style="background-color:#ffffff;">
+
+                <div align="center" style="background-color:#4FC3F7"><img src="./img/kcoba.jpg" style="margin-top:5px; border-radius:5%; width:100%; height:auto;" /></div>
+				<br/><br/><br/>
+                
+				
+				<div class="list list-inset">
+					<label class="item item-input">
+						<i class="icon ion-person placeholder-icon"></i>
+						<input type="text" placeholder="username" ng-model="user.username">
+					</label>
+				</div>
+				<div class="list list-inset">
+					<label class="item item-input">
+						<i class="icon ion-locked placeholder-icon"></i>
+						<input type="password" placeholder="password" ng-model="user.password">
+					</label>
+				</div>
+                <div class="padding"><button class="button button-block button-calm" ng-click="LogIn(user)">Login</button></div>
+				    <br/>
+				<div align="center"> <a href="#">Forgot Password?</a></div><br/>	
+					
+                <div class="col"  align="center" ><a  style="color:blue" ng-click="enrol()"> <i class="icon ion-person-add" ></i><p>New User?<br/> SignUp</a></div>
+				
+            </ion-content>
+			<!--<ion-footer-bar align-title="left" class="bar-assertive">
+
+</ion-footer-bar> -->
+        </ion-view>
+    </script>
+
+	  <script id="enrol.html" type="text/ng-template">
+
+        <ion-view view-title="Login" name="login-view">
+			<div class="bar bar-header bar-positive">
+				<button class="button icon ion-chevron-left" ng-click="signin()"></button>
+				<h1 class="title">KCOBA</h1>
+				<!-- <button class="button" >Enroll</button> -->
+			</div>
+            <ion-content class="padding">
+			<br/><br/>
+                <div align="center"><img src="./img/logo.png" /></div>
+                <div class="list list-inset">
+                    <label class="item item-input">
+                        <input type="text" placeholder="Firstname" ng-model="enrol.firstname">
+                    </label> <br/>
+                    <label class="item item-input">
+                        <input type="text" placeholder="Middlename" ng-model="enrol.middlename">
+                    </label><br/>
+					 <label class="item item-input">
+                        <input type="text" placeholder="Lastname" ng-model="enrol.lastname">
+                    </label><br/>
+                    <label class="item item-input">
+                        <input type="text" placeholder="Nickname" ng-model="enrol.nname">
+                    </label><br/>
+					
+					 <label class="item item-input">
+                        <input type="text" placeholder="Email" ng-model="enrol.email">
+                    </label><br/>
+					 <label class="item item-input">
+                        <input type="password" placeholder="Password" ng-model="enrol.password">
+                    </label><br/>
+					 <label class="item item-input">
+                        <input type="tel" placeholder="Phone number" ng-model="enrol.phone">
+                    </label><br/>
+                   
+                  
+					 <label class="item item-input">
+                        <input type="text" placeholder="Year of Graduation" ng-model="enrol.yog">
+                    </label><br/>
+					
+					<label class="item item-input item-select">
+						<div class="input-label">
+						House
+						</div>
+						<select ng-model="enrol.house" ng-options="x.house for x in kchouse">
+  
+						</select>
+					</label><br/>
+					 <!-- <label class="item item-input">
+                        <input type="text" id="txthouse" value="{{enrol.house.house}}" placeholder="House">
+						
+                    </label>
+					<p>{{panel.house}}</p>
+					<label class="item item-input">
+                        <input type="text" id="txthouse" value="{{enrol.house}}" placeholder="House22">
+						
+                    </label> -->
+                </div>
+				
+                <button class="button button-block button-calm" ng-click="Enroll(enrol)">Enroll</button>
+            </ion-content>
+        </ion-view>
+    </script>
+   
+   
+       <script id="successpage.html" type="text/ng-template">
+        <br />
+        <ion-view view-title="Login" name="login-view">
+			<div class="bar bar-header bar-positive">
+				<a href="#signout"><button class="button icon ion-navicon" ></button></a>
+				<h1 class="title">KCOBA</h1>
+				<button class="button" ng-click="enrol()">Enroll</button>
+			</div>
+            <ion-content class="padding">
+			<br/><br/><br/>
+              <div align="center">
+            <img src="img/good.png" />
+            <h3>Enrollment was successful.</h3>
+            <p>An SMS and Email have been sent containing your details.</p>
+            <p ng-bind="enrollid"></p>
+            <br />
+			</div>
+            </ion-content>
+        </ion-view>
+    </script>
+   
+  </body>
+</html>

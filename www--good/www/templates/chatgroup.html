@@ -1,0 +1,32 @@
+<ion-view view-title="Class of {{year}}">
+  <ion-content>
+
+<div id="chatPanel" style='overflow:auto; width:100%;height:auto;'>
+                <p id="lblmsgs" ></p>
+            </div><br />
+
+
+            <br />
+  </ion-content>
+<ion-footer-bar  class="bar-assertive">
+<div class="bar bar-footer item-input-inset">
+  <label class="item-input-wrapper">
+    <i class="icon ion-android-mail placeholder-icon"></i>
+    <input type="text" id="txtmsg" placeholder="Type a message" ng-model="msg.txt">
+  </label>
+  <button class="button button-small" ng-click="chat(msg)">
+    Send
+  </button>
+</div>
+
+  <!--<div class="item item-input-inset">
+    <label class="item-input-wrapper">
+      <input type="text" placeholder="Email">
+    </label>
+    <button class="button button-small">
+      Submit
+    </button>
+  </div>-->
+
+</ion-footer-bar>
+</ion-view>

@@ -1,0 +1,74 @@
+<ion-view view-title="Member Directory">
+  <ion-content class="slide-in-both-ways">
+	<div align="center" style="background-color:white"><img src="img/Member-Directory.jpg" style="margin-top:5px; border-radius:5%; width:100%; height:auto;" /></div>
+	<div class="padding">
+		<button class="button button-full icon-left ion-search button-positive"  ng-click="ShowHide()">Search </button>
+	</div>
+	<div ng-animate="'animate'" class="item fadein fadeout" ng-show = "IsVisible" ng-hide="searchCat">
+		<ion-radio ng-model="choice" value="A" >Search By Name</ion-radio>
+		<ion-radio ng-model="choice" value="B">Search By House</ion-radio>
+		<ion-radio ng-model="choice" value="C">Search By Year of Graduation</ion-radio>
+	<br/>
+	</div>
+<div class="list padding fadein fadeout" ng-show="isEven(choice)" ng-hide="Name">
+  <div class="item item-input-inset">
+    <label class="item-input-wrapper">
+    <input type="text" placeholder="First Name" ng-model = "Names.fname">
+  </label>
+  </div>
+    <div class="item item-input-inset">
+    <label class="item-input-wrapper">
+    <input type="text" placeholder="Last Name" ng-model = "Names.lname">
+  </label>
+  <button class="button button-small button-balanced" ng-click="NameSearch(Names)">
+      Submit
+    </button>
+	</div>
+</div>
+
+<br/>
+<div class="list padding fadein fadeout" ng-show="isEven(choice)"  ng-hide="YOG">
+  <div class="item item-input-inset">
+    <label class="item-input-wrapper">
+    <input type="tel" maxlength="4" placeholder="Year of Graduation" ng-model="Year.yr">
+  </label>
+  <button class="button button-small button-balanced" ng-click="YOGSearch(Year)">
+      Submit
+    </button>
+  </div>
+</div>
+
+<br/>
+<div class="list padding fadein fadeout" ng-show="isEven(choice)" ng-hide="House">
+	<div class="item ">
+ <!-- <label class="item-input-wrapper">
+    <input type="text" placeholder="House" ng-model="Houses.house">
+  </label> -->
+		<label class="item item-input item-select">
+			<div class="input-label">
+				House
+			</div>
+			<select  name="KChouse" ng-model="Houses" ng-options="x.houses for x in kchouse">
+			</select>
+		</label>
+<button class="button button-small button-balanced" ng-click="HouseSearch(Houses)">
+      Submit
+    </button>
+	</div>
+</div>
+
+
+<div class="list padding">
+
+    <a class="item item-avatar item-icon-right slide-in-both-ways" href="tel:{{item.Phone}}" ng-repeat="item in List" class="item item-thumbnail-left ">
+			<img ng-src="{{item.Photo}}">
+            <h2>{{item.Name | uppercase}}</h2>
+            <p>{{item.House}}</p>
+            <p>{{item.YOG}}</p>
+			<i class="icon ion-ios-telephone"></i>
+    </a>
+</div>
+
+<div id="spin" align="center" class="outer" ng-hide="loader"><ion-spinner icon="spiral"></ion-spinner><br/>Loading</div>
+  </ion-content>
+</ion-view>

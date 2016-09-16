@@ -1,0 +1,14 @@
+<ion-view view-title="Feedback">
+	<ion-content>
+	<div align="center" style="background-color:white"><img src="img/feedback-banner.jpg" style="margin-top:5px; border-radius:5%; width:100%; height:auto;"/></div>
+		<div class="list list-inset">
+			<label class="item item-input">
+				<textarea rows="5" id="feedbck"  cols="80" placeholder="Tell us what you think..." ng-model="feedback.msg"></textarea>
+			</label>
+		</div>
+		
+		<div class="row">
+			<button id="btnSendFeedBack" class="button icon-left ion-email button-block button-positive" ng-click="SendMail(feedback)">Send Feedback</button>
+		</div>
+	</ion-content>
+</ion-view>

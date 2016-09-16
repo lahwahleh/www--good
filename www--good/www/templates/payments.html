@@ -1,0 +1,25 @@
+<ion-view view-title="Payments">
+  <ion-content>
+  <div align="center" style="background-color:white"><img src="img/payment-banner.jpg" style="margin-top:5px; border-radius:5%; width:100%; height:auto;"/></div>
+    <br/>
+	<div class="list list-inset">
+		<a class="item item-icon-left item-icon-right" href="#/app/webview">
+			<i class="icon ion-cash"></i>
+			Make Payment
+			<i class="icon ion-ios-pricetags-outline"></i>
+		</a>
+
+	</div>
+	 <ion-list>
+		<div class="item item-divider">
+		Transaction History
+		</div>
+        <ion-item ng-repeat="item in playlists" class="item item-thumbnail-left" >
+            <img ng-src="img/payment-icon.png" width="48px" height="48px">
+            <h2>{{item.title | uppercase}}</h2>
+            <p> N {{item.amount}}</p>
+            <p>{{item.status}}</p>
+        </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

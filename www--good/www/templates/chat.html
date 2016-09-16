@@ -1,0 +1,75 @@
+<ion-view view-title="Kcoba Chat">
+  <ion-content class="slide-in-both-ways">
+  <br/>
+  <div class="row" align="center">
+	<div class="col"><a href="#/app/home"><img ng-src="img/kcoba-chat.png" style="margin-top:5px; border-radius:5%; width:100%; height:auto;" id="fprofilepic" alt="No Profile Picture" onerror="this.src='img/ionic.png'"/></a><br/></div>
+	
+<!--
+	<div class="col"><a href="#/app/playlists"><img ng-src="img/newsic.png" style="border:6px solid gray;border-radius: 50%;" id="fprofilepic" alt="No Profile Picture" onerror="this.src='img/ionic.png'"  width="100px"  /></a><br/><b>Newsfeed</b></div>
+	<div class="col"><a href="#/app/payments"><img ng-src="img/payic.png" style="border:6px solid gray;border-radius: 50%;" id="fprofilepic" alt="No Profile Picture" onerror="this.src='img/ionic.png'"  width="100px"  /></a><br/><b>Payment</b></div>
+-->
+
+
+	<!--<div class="col"><img ng-src="img/ionic.png" style="border:6px solid gray;border-radius: 50%;" id="fprofilepic" alt="No Profile Picture" onerror="this.src='img/ionic.png'"  width="100px"  /><br/><b>Dashboard</b></div>-->
+  </div>
+	
+
+
+	<div class="list list-inset" style="background:red">
+		<a class="item item-icon-left item-icon-right" href="#/app/chatgroup/{{year}}/{{name}}/{{biodata}}">
+			<i class="icon ion-person-stalker"></i>
+			Join Group Chat
+			<i class="icon ion-ios-chatboxes-outline"></i>
+		</a>
+	</div>
+	<div class="item item-divider">
+		Personal Chat
+		</div>
+	<div class="list list-inset">
+		<label class="item item-input">
+			<input type="text" id="Firstname" placeholder="First Name" ng-model="chat.fname">
+		</label>
+		<label class="item item-input">
+			<input type="text" id="Lastname" placeholder="Last Name" ng-model="chat.lname">
+		</label>
+	  
+		<br/>
+		<button class="button icon-left ion-search button-block button-positive" ng-click="searchChat(chat)">
+		  Search
+		</button>
+		<br/>
+		<div ng-repeat="item in members" class="list list-inset">
+
+		<span id="amyAnchor">
+
+			 <a class="item item-avatar" href="#/app/chats/{{members.indexOf(item)}}/{{item.biodataid}}"  ng-click="chatuser(user)">
+			  <img ng-src="{{item.Photo}}">
+			  <h2 ng-model="user.name">{{item.Name}} <i class="ion-chatboxes-outline"></i></h2>
+			  <p ng-model="user.biodataid">{{item.YOG}}</p>
+			  
+			</a>
+
+		</span>
+
+		</div>
+		<!--<div ng-repeat="item in members" class="list list-inset">
+
+			 <a class="item item-avatar" href="#/app/chats/{{members.indexOf(item)}}"  ng-click="chatuser(user)">
+			  <img src="img/venkman.jpg">
+			  <h2 ng-model="user.name">Venkman</h2>
+			  <p ng-model="user.biodataid">Back off, man. I'm a scientist.</p>
+			</a>
+
+		</div>-->
+	</div>
+   <!-- <ion-list>
+        <ion-item ng-repeat="item in playlists" class="item item-thumbnail-left" href="#/app/chats/{{playlists.indexOf(item)}}">
+            <img ng-src="{{item.photoString}}">
+            <h2>{{item.Name | uppercase}}</h2>
+            <p>{{item.gender}}</p>
+            <p>{{item.email}}</p>
+
+        </ion-item>
+    </ion-list>-->
+  </ion-content>
+</ion-view>

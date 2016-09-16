@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<widget id="com.ionicframework.mobileapp565000" version="0.0.10" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:gap = "http://phonegap.com/ns/1.0">
+  <name>KCOBA</name>
+  <description>
+        Kings College Old Boys Association App
+    </description>
+  <author email="sesetonye@gmail.com" href="http://example.com.com/">
+      sese Frank
+    </author>
+  <content src="index.html"/>
+
+  <gap:plugin name="com.indigoway.cordova.whitelist.whitelistplugin" version="1.1.1" />
+  <access origin="*"/>
+  <access origin="http://162.144.253.91"/>
+  <access origin="http://127.0.0.1"/>
+  <allow-navigation href="*"/>
+  <allow-intent href="*"/>
+
+	<icon src="icon.png"/>
+  
+
+  <preference name="webviewbounce" value="false"/>
+  <preference name="UIWebViewBounce" value="false"/>
+  <preference name="DisallowOverscroll" value="true"/>
+  <preference name="android-minSdkVersion" value="16"/>
+  <preference name="BackupWebStorage" value="none"/>
+  
+  	<feature name="http://api.phonegap.com/1.0/battery"/>
+<feature name="http://api.phonegap.com/1.0/camera"/>
+<feature name="http://api.phonegap.com/1.0/contacts"/>
+<feature name="http://api.phonegap.com/1.0/file"/>
+<feature name="http://api.phonegap.com/1.0/geolocation"/>
+<feature name="http://api.phonegap.com/1.0/media"/>
+<feature name="http://api.phonegap.com/1.0/network"/>
+<feature name="http://api.phonegap.com/1.0/notification"/>
+<feature name="http://api.phonegap.com/1.0/device"/>
+	<preference name="orientation" value="portrait" /> 
+        <preference name="target-device" value="universal" /> 
+  <feature name="StatusBar">
+    <param name="ios-package" value="CDVStatusBar" onload="true"/>
+  </feature>
+</widget>

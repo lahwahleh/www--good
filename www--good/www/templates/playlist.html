@@ -1,0 +1,23 @@
+<ion-view view-title="NewsFeed">
+  <ion-content>
+      <div class="list card">
+
+          <div class="item item-avatar">
+              <img ng-src="img/newsfeed.png">
+              <h2>{{playlists[item].title}}</h2>
+              <!--<p>{{item}}</p>-->
+          </div>
+
+			<div ng-bind-html="renderHTML()" class="padding" id="MyEdit"></div>
+
+		
+
+          <a class="item item-icon-left assertive" href="#">
+              <i class="icon ion-ios-time-outline"></i>
+              {{playlists[item].date}}
+          </a>
+
+      </div>
+
+  </ion-content>
+</ion-view>

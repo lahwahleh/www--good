@@ -1,0 +1,51 @@
+<ion-view view-title="contact {{profiles[0].name}} service">
+  <ion-content>
+
+<div id="chatPanel" style='overflow:auto; width:100%;height:auto;'>
+       <div class="list card">
+
+  <div class="item item-avatar">
+    <img ng-src="{{profiles[0].picture}}">
+    <h2>{{profiles[0].name}}</h2>
+    <p>{{profiles[0].userid}}</p>
+  </div>
+
+  <div class="item item-body">
+
+    <p>
+      {{profiles[0].profile}}
+    </p>
+    <p>
+      <a href="#" class="subdued">Occupation: {{profiles[0].occupation}}</a>
+      <a href="#" class="subdued">Years Of Experience: {{profiles[0].yoe}}</a>
+    </p>
+  </div>
+
+</div>
+            </div><br />
+
+
+            <br />
+  </ion-content>
+<ion-footer-bar  class="bar-assertive">
+<div class="bar bar-footer item-input-inset">
+  <label class="item-input-wrapper">
+    <i class="icon ion-android-mail placeholder-icon"></i>
+    <input type="text" id="txtmsg" placeholder="Type a message" ng-model="msg.txt">
+  </label>
+  <button class="button button-small" ng-click="SendMail(msg)">
+    Send
+  </button>
+</div>
+
+  <!--<div class="item item-input-inset">
+    <label class="item-input-wrapper">
+      <input type="text" placeholder="Email">
+    </label>
+    <button class="button button-small">
+      Submit
+    </button>
+  </div>-->
+
+</ion-footer-bar>
+</ion-view>

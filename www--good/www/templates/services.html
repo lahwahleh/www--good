@@ -1,0 +1,52 @@
+<ion-view view-title="Services">
+  <ion-content>
+  <div align="center" style="background-color:white"><img src="img/Services-banner.png" style="margin-top:5px; border-radius:5%; width:100%; height:auto;" /></div>
+  <br/>
+  <center> <strong> Please select a service below </strong> </center> <br/>
+	<div class="list list-inset" >
+			<label class="item item-input item-select">
+				<div class="input-label icon ion-search placeholder-icon">
+				  Category
+				</div>
+			<select ng-model="service" ng-options="x.profession for x in serviceList2">
+			</select>
+			</label>
+			<button class="button button-calm icon-left ion-search button-block" ng-click="Search(service)">Search</button>
+</div>
+	
+	<div ng-repeat="item in members" class="list list-inset slide-in-both-ways">
+
+			 <a class="item item-avatar" href="#/app/services/{{members.indexOf(item)}}/{{item.biodataid}}" >
+			  <img ng-src="{{item.Photo}}">
+			  <h2 ng-model="user.name">{{item.Name}} <i class="ion-chatboxes-outline"></i></h2>
+			  <p ng-model="user.biodataid">{{item.YOG}}</p>
+			  
+			</a>
+
+		</div>
+	
+  </ion-content>
+  <!--<ion-footer-bar  class="bar-assertive">
+  mailto:
+  href="#/app/chats/{{members.indexOf(item)}}/{{item.biodataid}}"  ng-click="chatuser(user)"
+<div class="bar bar-footer item-input-inset">
+  <label class="item-input-wrapper">
+    <i class="icon ion-android-mail placeholder-icon"></i>
+    <input type="text" id="txtmsg" placeholder="Type a message">
+  </label>
+  <button class="button button-small">
+    Send
+  </button>
+</div>
+
+<div class="item item-input-inset">
+    <label class="item-input-wrapper">
+      <input type="text" placeholder="Email">
+    </label>
+    <button class="button button-small">
+      Submit
+    </button>
+  </div>
+
+</ion-footer-bar>-->
+</ion-view>
