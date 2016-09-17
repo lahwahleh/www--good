@@ -420,8 +420,31 @@ $scope.year = $stateParams.year;
 
   // Triggered When the search button is clicked
     $scope.searchChat = function (chat) {
-        var url = urlstr_custom + "searchmembers/?firstname=" + chat.fname || "searchmembers/?laststname=" + chat.lname; 
-         // var url = urlstr_custom + "searchmembers/?firstname=" + chat.fname + "&lastname=" + chat.lname;
+        //var url = urlstr_custom + "searchmembers/?firstname=" + chat.fname || "searchmembers/?laststname=" + chat.lname; 
+        if (chat.fname == "" && chat.lname == ""){
+            var alertPopup = $ionicPopup.alert({
+                    title: 'Error!',
+                    template: 'Please enter Name(s)'
+                });
+
+        }
+
+        else if (chat.fname != "" && chat.lname == ""){
+
+            var url = urlstr_custom + "searchmembers/?firstname=" + chat.fname;
+        }
+         
+         else if (chat.fname == "" && chat.lname != ""){
+
+            var url = urlstr_custom + "searchmembers/?lastname=" + chat.lname;
+        }
+
+        else {
+            var url = urlstr_custom + "searchmembers/?firstname=" + chat.fname + "&lastname=" + chat.lname;
+        }
+
+         //var url = urlstr_custom + "searchmembers/?firstname=" + chat.fname + "&lastname=" + chat.lname;
+        
 	    console.log(url);
 		$http.get(url).success(function (data) {
 			$scope.members = data;
@@ -430,10 +453,10 @@ $scope.year = $stateParams.year;
 			//$scope.item = $stateParams.itemId;
 		}).error(function (data, status, header, config) {
 
-            $scope.response = "Data: " + data +
+          if  $scope.response = "Data: " + data +
                 "<hr />status: " + status +
                 "<hr />headers: " + header +
-                "<hr />config: " + config;
+                "<hr />config: " + config
 			console.log($scope.response);
         });
 
