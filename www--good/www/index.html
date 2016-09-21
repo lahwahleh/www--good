@@ -8,6 +8,11 @@
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 	<link href="lib/ionic/css/chatcss.css" rel="stylesheet">
+    <link href="lib/ionic/css/bootstrap-theme.css" rel="stylesheet">
+    <link href="lib/ionic/css/bootstrap.min.css" rel="stylesheet">
+    <link href="lib/ionic/css/font-awesome.min.css" rel="stylesheet">
+   
+
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
     -->
@@ -23,6 +28,7 @@
     <script src="lib/ionic/js/angular/angular-animate.min.js"></script>
     <script src="lib/ionic/js/angular/angular-touch.js"></script>
     <script src="lib/ionic/js/moment.js"></script>
+    <script src="lib/ionic/js/bootstrap.min.js"></script>
     <!--add-->
 
 
@@ -43,9 +49,9 @@
       <ion-nav-view ></ion-nav-view>
     <script id="signout.html" type="text/ng-template">
 <!--  <ion-view view-title="Login" name="login-view"><div class="bar bar-header bar-positive"><button class="button icon ion-navicon" ></button><h1 class="title">KCOBA</h1><button class="button" ng-click="enrol()">Enroll</button>			</div> -->
-            <ion-content style="background-color:#ffffff;">
+            <ion-content style="background-image:url('./img/kcobanavy.png');">
 
-                <div align="center" style="background-color:#4FC3F7"><img src="./img/kcoba.jpg" style="margin-top:5px; border-radius:5%; width:100%; height:auto;" /></div>
+                <div align="center" style="background-color:#fff"><img src="./img/kcoba.jpg" style="margin: 10px; border-radius:5%; width:100%; height:auto;" /></div>
 				<br/><br/><br/>
                 
 				
@@ -63,9 +69,20 @@
 				</div>
                 <div class="padding"><button class="button button-block button-calm" ng-click="LogIn(user)">Login</button></div>
 				    <br/>
-				<div align="center"> <a href="#">Forgot Password?</a></div><br/>	
+                <div class="container"> 
+                <ul class="list-inline social-buttons" align="center">
+                    <li style="margin-right:10px; color:#ffffff;">
+                    <a href="https://twitter.com/KCOBA"><i class="fa fa-twitter"></i></a></li>
+                    <li style="color:#ffffff;">
+                    <a href="https://www.facebook.com/kingscollegeoldboysassociation/"><i class="fa fa-facebook"></i></a></li>
+                    <li style="margin:10px; color:#ffffff;">
+                    <a href="https://www.instagram.com/kcoba_worldwide/?hl=en"><i class="fa fa-instagram"></i></a></li>
+                </ul>
+                </div>
+				
+                <br/>	
 					
-                <div class="col"  align="center" ><a  style="color:blue" ng-click="enrol()"> <i class="icon ion-person-add" ></i><p>New User?<br/> SignUp</a></div>
+                <div class="col"  align="center" ><a  style="color:#FFFFFF" ng-click="enrol()"> <i class="icon ion-person-add" ></i><p>New User?<br/> SignUp</a></div>
 				
             </ion-content>
 			<!--<ion-footer-bar align-title="left" class="bar-assertive">

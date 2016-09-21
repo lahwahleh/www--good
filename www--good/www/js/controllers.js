@@ -406,8 +406,8 @@ $scope.year = $stateParams.year;
 })
 
 .controller('ChatCtrl', function($scope, $stateParams,$http){
-	//$scope.members = [
-	
+    //$scope.members = [
+    
     //{ title: 'Reggae', id: 1 },
     //{ title: 'Chill', id: 2 },
     //{ title: 'Dubstep', id: 3 },
@@ -420,49 +420,26 @@ $scope.year = $stateParams.year;
 
   // Triggered When the search button is clicked
     $scope.searchChat = function (chat) {
-        //var url = urlstr_custom + "searchmembers/?firstname=" + chat.fname || "searchmembers/?laststname=" + chat.lname; 
-        if (chat.fname == "" && chat.lname == ""){
-            var alertPopup = $ionicPopup.alert({
-                    title: 'Error!',
-                    template: 'Please enter Name(s)'
-                });
+        var url = urlstr_custom + "searchmembers/?firstname=" + chat.fname || "searchmembers/?laststname=" + chat.lname; 
+         // var url = urlstr_custom + "searchmembers/?firstname=" + chat.fname + "&lastname=" + chat.lname;
+        console.log(url);
+        $http.get(url).success(function (data) {
+            $scope.members = data;
+            
+            console.log(data);
+            //$scope.item = $stateParams.itemId;
+        }).error(function (data, status, header, config) {
 
-        }
-
-        else if (chat.fname != "" && chat.lname == ""){
-
-            var url = urlstr_custom + "searchmembers/?firstname=" + chat.fname;
-        }
-         
-         else if (chat.fname == "" && chat.lname != ""){
-
-            var url = urlstr_custom + "searchmembers/?lastname=" + chat.lname;
-        }
-
-        else {
-            var url = urlstr_custom + "searchmembers/?firstname=" + chat.fname + "&lastname=" + chat.lname;
-        }
-
-         //var url = urlstr_custom + "searchmembers/?firstname=" + chat.fname + "&lastname=" + chat.lname;
-        
-	    console.log(url);
-		$http.get(url).success(function (data) {
-			$scope.members = data;
-			
-			console.log(data);
-			//$scope.item = $stateParams.itemId;
-		}).error(function (data, status, header, config) {
-
-          if  $scope.response = "Data: " + data +
+            $scope.response = "Data: " + data +
                 "<hr />status: " + status +
                 "<hr />headers: " + header +
-                "<hr />config: " + config
-			console.log($scope.response);
+                "<hr />config: " + config;
+            console.log($scope.response);
         });
 
 
         document.getElementById("amyAnchor").focus();
-		
+        
     };
  
 

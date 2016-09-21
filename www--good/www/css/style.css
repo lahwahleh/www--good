@@ -23,6 +23,11 @@
 }
 
 
+.glyphicon, 
+.fa-rss{
+  color: #ffffff;
+  font-size: 25px;
+}
 
 
 .outer{
